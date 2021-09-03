@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
+using System.Diagnostics;
 using System.Text;
 using System.Windows.Input;
 using Xamarin.Forms;
@@ -25,14 +26,16 @@ namespace emailAppXamarin.ViewModels
         {
             var newEmail = new Email(Title, Description, To, Body);
             _referenceEmail.Add(newEmail);
-            await App.Current.MainPage.Navigation.PopAsync();
+            await App.Current.MainPage.Navigation.PopModalAsync();
+            
+            Debug.WriteLine("New page made");
         }
 
 
         public ICommand AddEmailCommand { get; }
-        public string Title { get; private set; }
-        public string Description { get; private set; }
-        public string To { get; private set; }
-        public string Body { get; private set; }
+        public string Title { get;  set; }
+        public string Description { get; set; }
+        public string To { get; set; }
+        public string Body { get; set; }
     }
 }

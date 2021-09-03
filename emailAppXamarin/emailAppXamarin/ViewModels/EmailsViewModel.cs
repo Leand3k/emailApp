@@ -40,16 +40,26 @@ namespace emailAppXamarin.ViewModels
 
             NavigateCommand = new Command(async () =>
             {
-                await App.Current.MainPage.Navigation.PushModalAsync(new AddEmailPage(Emails));
+                await App.Current.MainPage.Navigation.PushModalAsync(new NavigationPage(new AddEmailPage(Emails)));
             });
+
+            DeleteCommand = new Command<Email>(Delete);
         }
+
+       
 
         private async void EmailsSelected(Email email)
         {
             await App.Current.MainPage.Navigation.PushAsync(new EmailsPage());
         }
 
+        private void Delete(Email email)
+        {
+            Emails.Remove(email);
 
+        }
+
+        public ICommand DeleteCommand { get; set; }
         public ICommand SelectedEmailCommand { get; set; }
         public ICommand NavigateCommand { get; }
 
