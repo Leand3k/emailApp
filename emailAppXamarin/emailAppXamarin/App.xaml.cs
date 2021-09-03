@@ -1,4 +1,5 @@
-﻿using System;
+﻿using emailAppXamarin.Views;
+using System;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -10,7 +11,9 @@ namespace emailAppXamarin
         {
             InitializeComponent();
 
-            MainPage = new MainPage();
+            MainPage = new NavigationPage(new EmailsPage());
+
+
         }
 
         protected override void OnStart()

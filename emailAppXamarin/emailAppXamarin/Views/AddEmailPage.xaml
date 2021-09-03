@@ -1,0 +1,92 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:models="clr-namespace:emailAppXamarin.Models"
+             x:Class="emailAppXamarin.Views.AddEmailPage">
+
+
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Command="{Binding AddEmail}"></ToolbarItem>
+    </ContentPage.ToolbarItems>
+
+    <Grid
+        
+        VerticalOptions="StartAndExpand"
+        HorizontalOptions="FillAndExpand"
+        RowDefinitions="Auto, Auto, Auto, Auto"
+        ColumnDefinitions="*, *, *, *">
+
+        <Label 
+
+            Text="To:" 
+            Grid.Row="0" 
+            Grid.Column="0" 
+            FontSize="Medium" 
+            VerticalOptions="Center"></Label>
+
+        <Entry
+            
+            Grid.Row="0"
+            Grid.Column="1"
+            Grid.ColumnSpan="4"
+            Keyboard="Email"
+            Text="{Binding Email.To}"
+            ClearButtonVisibility="WhileEditing"
+         ></Entry>
+
+        <Label
+            
+            Grid.Row="1"
+            Grid.Column="0"
+            Text="From: me"
+            FontSize="Medium"
+            VerticalOptions="Center"
+            ></Label>
+
+        <Label
+            
+            Grid.Row="2"
+            Grid.Column="0"
+            Text="Subject:"
+            FontSize="Medium"
+            VerticalOptions="Center"
+            
+            ></Label>
+
+        <Entry
+            
+            Grid.Row="2"
+            Grid.Column="1"
+            Grid.ColumnSpan="4"
+            Keyboard="Email"
+            Text="{Binding Email.Description}"
+            ClearButtonVisibility="WhileEditing"
+         ></Entry>
+
+        <Label
+            
+            Grid.Row="3"
+            Grid.Column="0"
+            Text="Body:"
+            FontSize="Medium"
+            VerticalOptions="Center"
+            
+            ></Label>
+
+        <Entry
+            
+            Grid.Row="2"
+            Grid.Column="1"
+            Grid.ColumnSpan="4"
+            Keyboard="Email"
+            Text="{Binding Email.Body}"
+            ClearButtonVisibility="WhileEditing"
+         ></Entry>
+
+
+
+    </Grid>
+    
+    
+    
+    
+</ContentPage>
