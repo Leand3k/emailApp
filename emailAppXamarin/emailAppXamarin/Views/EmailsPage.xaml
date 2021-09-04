@@ -5,94 +5,66 @@
              xmlns:viewModels="clr-namespace:emailAppXamarin.ViewModels" xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              x:Name="EmailPage">
 
-    
     <ContentPage.BindingContext>
         <viewModels:EmailsViewModel></viewModels:EmailsViewModel>
     </ContentPage.BindingContext>
-    
+
     <ContentPage.ToolbarItems>
         <ToolbarItem Name="AddButton" Text="Add" Priority="0" Order="Primary" Command="{Binding NavigateCommand}">
-            
         </ToolbarItem>
     </ContentPage.ToolbarItems>
-    
-    <ListView ItemsSource="{Binding Emails}" HasUnevenRows="True" SelectedItem="{Binding SelectedEmailCommand}">
-        
-        
+
+    <ListView ItemsSource="{Binding Emails}" HasUnevenRows="True" SelectedItem="{Binding ViewEmailCommand}">
 
         <ListView.ItemTemplate>
-            
-            
-            
-            
+
             <DataTemplate>
 
-                
-                
                 <ViewCell>
 
                     <ViewCell.ContextActions>
 
-                        <MenuItem Command="{Binding Source={x:Reference EmailPage}, Path=BindingContext.DeleteCommand}" CommandParameter="{Binding}" Text="Delete"></MenuItem>
-                        
+                        <MenuItem Command="{Binding Source={x:Reference EmailPage}, Path=BindingContext.DeleteCommand}" CommandParameter="{Binding}"  Text="Delete" ></MenuItem>
                     </ViewCell.ContextActions>
 
-                    
                     <StackLayout>
 
                         <Label
-                            
+
                             Text="{Binding Date.DayOfWeek}"
                             FontSize="Small"
                             TextColor="Black"
                             HorizontalOptions="End"
-                            VerticalOptions="Center"
-                            
-                            
-                            >
-
-                            <Label.GestureRecognizers>
-                                <TapGestureRecognizer Command="{Binding Source={x:Reference EmailPage}, Path=BindingContext.DeleteEmailCommand }"></TapGestureRecognizer>
-                            </Label.GestureRecognizers>
-                            
+                            VerticalOptions="Center">
                         </Label>
 
                         <Label
-                            
+
                             Text="{Binding To}"
                             FontSize="Small"
                             TextColor="Black"
-                            FontAttributes="Bold"
-                            
-                            ></Label>
+                            FontAttributes="Bold">
+                        </Label>
 
                         <Label
-                            
+
                             Text="{Binding Description}"
                             FontSize="Small"
                             TextColor="Black"
                             FontAttributes="Bold"
-                            
+
                             ></Label>
 
                         <Label
-                            
+
                             Text="{Binding Body}"
                             FontSize="Small"
                             TextColor="Black"
-                            
-                            
-                            ></Label>
 
-                        
+                            ></Label>
                     </StackLayout>
                 </ViewCell>
             </DataTemplate>
         </ListView.ItemTemplate>
-        
-        
     </ListView>
-    
-    
-    
 </ContentPage>
